@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "846528174909",
+    "project_id": "gen-medicine",
+    "storage_bucket": "gen-medicine.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846528174909:android:7098869e7e65f089e14354",
+        "android_client_info": {
+          "package_name": "com.example.gen_medicine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV784FSFe8GRiFo_Tv-TxnzTM2Mmo5LnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
