@@ -71,12 +71,13 @@ public class SignUp extends AppCompatActivity {
                     auth.createUserWithEmailAndPassword(email1,pass1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isComplete())
+                            if(task.isSuccessful())
                             {
                                 toNextActivity();
                             }
                             else
                             {
+                                pb.dismiss();
                                 Toast.makeText(SignUp.this,"Unsuccessfull",Toast.LENGTH_LONG).show();
                             }
                         }

@@ -12,7 +12,20 @@
           "package_name": "com.example.gen_medicine"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "846528174909-r0p7d8li947kl35n5p2koii0d7mm7u1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gen_medicine",
+            "certificate_hash": "a5c4d2b4a569d0434e21ac24dec8d474d39cf8cd"
+          }
+        },
+        {
+          "client_id": "846528174909-oi2ba7875lb8hk286dfcegvjur018npm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAV784FSFe8GRiFo_Tv-TxnzTM2Mmo5LnE"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "846528174909-oi2ba7875lb8hk286dfcegvjur018npm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
