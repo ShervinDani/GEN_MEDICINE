@@ -5,5 +5,7 @@
         <item name="colorPrimary">@color/white</item>
     </style>
 
-    <style name="Theme.GEN_MEDICINE" parent="Base.Theme.GEN_MEDICINE" />
+    <style name="Theme.GEN_MEDICINE" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#1EDDAF</item>
+    </style>
 </resources>

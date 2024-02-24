@@ -1,10 +1,12 @@
-package com.example.gen_medicine;
+package com.example.gen_medicine.COMMON;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.gen_medicine.R;
 
 
 public class MainActivity extends AppCompatActivity {
