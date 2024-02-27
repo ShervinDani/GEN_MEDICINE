@@ -1,4 +1,4 @@
-package com.example.gen_medicine;
+package com.example.gen_medicine.DATABASE;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

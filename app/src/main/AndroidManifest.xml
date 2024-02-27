@@ -16,6 +16,7 @@
         tools:targetApi="31">
         <activity
             android:name=".USER.Home"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name=".COMMON.SignUp"
