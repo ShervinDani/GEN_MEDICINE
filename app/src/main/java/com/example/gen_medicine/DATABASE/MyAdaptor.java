@@ -52,4 +52,9 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyViewHolder> {
             hospital=itemView.findViewById(R.id.hospital);
         }
     }
+    public void setFilter(ArrayList<DocList> l)
+    {
+        doc=l;
+        notifyDataSetChanged();
+    }
 }

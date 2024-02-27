@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +34,7 @@ import java.util.ArrayList;
  */
 public class ConsultFragment extends Fragment {
     RecyclerView recyclerView;
-    Button go;
+
     MyAdaptor adaptor;
     EditText loc;
     ArrayList<DocList>list;
@@ -89,7 +91,6 @@ public class ConsultFragment extends Fragment {
         recyclerView.setAdapter(adaptor);
         firebaseDatabase=FirebaseDatabase.getInstance();
         loc=root.findViewById(R.id.loc);
-        go=root.findViewById(R.id.go);
         databaseReference=firebaseDatabase.getReference("doctor");
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -110,35 +111,34 @@ public class ConsultFragment extends Fragment {
 
             }
         });
-        go.setOnClickListener(new View.OnClickListener() {
+        loc.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                list.clear();
-                String loc1=loc.getText().toString();
-                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for(DataSnapshot i : snapshot.getChildren())
-                        {
-                            if(loc1.toLowerCase().equals(i.child("Location").getValue(String.class).toLowerCase()))
-                            {
-                                DocList dl=new DocList();
-                                dl.setDname(i.child("Name").getValue(String.class));
-                                dl.setHospital(i.child("Hospital").getValue(String.class));
-                                dl.setPhone(i.child("Phone").getValue(String.class));
-                                list.add(dl);
-                            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                        }
-                        adaptor.notifyDataSetChanged();
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+            }
 
-                    }
-                });
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                search(s.toString());
             }
         });
         return root;
+    }
+    void search(String s)
+    {
+        ArrayList<DocList> dc=new ArrayList<>();
+        for(DocList i : list)
+        {
+            if(i.getHospital().toString().toLowerCase().contains(s.toLowerCase()))
+            {
+                dc.add(i);
+            }
+        }
+        adaptor.setFilter(dc);
     }
 }
