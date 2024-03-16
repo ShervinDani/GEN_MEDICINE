@@ -1,17 +1,13 @@
 package com.example.gen_medicine.COMMON;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.gen_medicine.PARMACY.PHomeActivity;
 import com.example.gen_medicine.R;
-import com.example.gen_medicine.USER.Home;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.ktx.Firebase;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(MainActivity.this,Home.class);
+                Intent intent=new Intent(MainActivity.this, PHomeActivity.class);
                 startActivity(intent);
             }
         },1);

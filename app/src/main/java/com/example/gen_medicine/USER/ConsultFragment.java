@@ -92,6 +92,7 @@ public class ConsultFragment extends Fragment {
         firebaseDatabase=FirebaseDatabase.getInstance();
         loc=root.findViewById(R.id.loc);
         databaseReference=firebaseDatabase.getReference("doctor");
+        databaseReference.child("10").child("Name").setValue("Shervin");
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lgreen"
+    tools:context=".PARMACY.AddFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="DETAILS"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        />
+
+    <LinearLayout
+        android:layout_width="312dp"
+        android:layout_height="480dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="8dp"
+            android:layout_marginTop="10dp"
+            android:paddingTop="3dp"
+            android:text="Name:"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/bname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bor"
+            android:singleLine="true"
+            android:hint="Brand Name"
+            android:paddingStart="10dp" />
+
+        <EditText
+            android:id="@+id/gname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bor"
+            android:singleLine="true"
+            android:hint="Generic Name"
+            android:paddingStart="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:paddingTop="3dp"
+            android:text="Additional Details:"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/dose"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bor"
+            android:singleLine="true"
+            android:hint="Recomended Dosage"
+            android:paddingStart="10dp" />
+
+        <EditText
+            android:id="@+id/food"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bor"
+            android:singleLine="true"
+            android:hint="Foods to avoid"
+            android:paddingStart="10dp" />
+
+        <Button
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:elevation="30dp"
+            android:text="Upload Image"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:elevation="30dp"
+            android:text="UPLOAD DETAILS"
+            android:textColor="@color/black" />
+    </LinearLayout>
+</FrameLayout>

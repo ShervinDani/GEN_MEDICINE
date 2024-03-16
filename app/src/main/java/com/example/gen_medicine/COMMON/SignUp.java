@@ -18,9 +18,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
-    EditText name,pass,cpass,email;
+    EditText name,pass,cpass,email,phone;
     Button signup;
     FirebaseAuth auth;
     FirebaseUser user;
@@ -34,6 +35,7 @@ public class SignUp extends AppCompatActivity {
         cpass=findViewById(R.id.cpassword);
         email=findViewById(R.id.email);
         signup=findViewById(R.id.signup);
+        phone=findViewById(R.id.phone);
         auth=FirebaseAuth.getInstance();
         user=auth.getCurrentUser();
         pb=new ProgressDialog(this);
@@ -44,6 +46,7 @@ public class SignUp extends AppCompatActivity {
                 String email1=email.getText().toString();
                 String pass1=pass.getText().toString();
                 String cpass1=cpass.getText().toString();
+                String phone1=phone.getText().toString();
                 if(name1.equals(""))
                 {
                     name.setError("Enter your name");
@@ -63,9 +66,14 @@ public class SignUp extends AppCompatActivity {
                     cpass.setError("Password dont match");
                     cpass.requestFocus();
                 }
+                else if(phone1.equals(""))
+                {
+                    phone.setError("Enter Phone Number");
+                    phone.requestFocus();
+                }
                 else
                 {
-                    pb.setTitle("Registration");
+                    pb.setTitle("Registration in process");
                     pb.setMessage("Please Wait..!");
                     pb.setCanceledOnTouchOutside(false);
                     pb.show();
@@ -74,7 +82,7 @@ public class SignUp extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
-                                toNextActivity();
+                                toNextActivity(email1,pass1,name1,phone1);
                             }
                             else
                             {
@@ -87,8 +95,12 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
-    public void toNextActivity()
+    public void toNextActivity(String email1,String pass1,String name1,String phone1)
     {
+        Toast.makeText(SignUp.this,name1+" "+email1+" "+pass1,Toast.LENGTH_LONG).show();
+        FirebaseDatabase.getInstance().getReference("user").child(phone1).child("Name").setValue(name1);
+        FirebaseDatabase.getInstance().getReference("user").child(phone1).child("Pass").setValue(pass1);
+        FirebaseDatabase.getInstance().getReference("user").child(phone1).child("Email").setValue(email1);
         pb.dismiss();
         Intent intent=new Intent(SignUp.this, Home.class);
         startActivity(intent);

@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView signup;
     FirebaseAuth auth;
     FirebaseUser user;
+    String email1,password1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email1=email.getText().toString();
-                String password1=password.getText().toString();
+                email1=email.getText().toString();
+                password1=password.getText().toString();
                 if(email1.equals(""))
                 {
                     email.setError("Enter Name");
@@ -65,6 +66,9 @@ public class LoginActivity extends AppCompatActivity {
                             if(task.isSuccessful())
                             {
                                 Intent intent=new Intent(LoginActivity.this, Home.class);
+                                intent.putExtra("Name","");
+                                intent.putExtra("Email",email1);
+                                intent.putExtra("pass",password1);
                                 startActivity(intent);
                             }
                             else
